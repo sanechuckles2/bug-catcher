@@ -1,3 +1,5 @@
+// Making this work for GITHUB
+
 Player myPlayer;
 Bug myBug;
 BugFactory factory;
