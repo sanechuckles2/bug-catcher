@@ -1,6 +1,4 @@
 
-
-
 class FireAnt extends Bug {
 
   FireAnt() {
@@ -8,7 +6,7 @@ class FireAnt extends Bug {
     yspeed = 1;
     baseJitter = 10;
     hitRadius = 70;
-    damage = 20;
+    damage = 25;
   }
 
   void draw() {

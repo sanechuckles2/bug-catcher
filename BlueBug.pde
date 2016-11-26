@@ -1,6 +1,4 @@
 
-
-
 class BlueBug extends Bug {
 
   BlueBug() {

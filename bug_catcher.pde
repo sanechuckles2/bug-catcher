@@ -4,7 +4,7 @@ BugFactory factory;
 PImage backgroundImage;
 ArrayList<Bug> bugList;
 float timer;
-boolean testBugs = true;
+boolean testBugs = false;
 
 void setup() {
   size(1200, 700); 

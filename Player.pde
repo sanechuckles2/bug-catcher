@@ -4,7 +4,9 @@ class Player {
   int xspeed = 7;
   boolean invertedcontrols = false;
   int score = 0;
-  float health = 75;
+  final float maxHealth = 75;
+  float health = maxHealth;
+
 
   void display() {
     stroke(0);
@@ -23,6 +25,17 @@ class Player {
     rect(x+40, y-50, 10, 75, 10);
   }
 
+  float changeHealth(float by) {
+    this.health += by;
+    if (this.health < 0)  {
+      this.health = 0;
+    } 
+    if(this.health > this.maxHealth) {
+      this.health = this.maxHealth; 
+    }
+    return this.health;
+  }
+
   void healthchange() {
     if (health >= 55) {
       fill(#00FF2C);
@@ -38,7 +51,12 @@ class Player {
         }
     if (keyPressed) {
       if (key == 'p') {
-        health = health -1;
+        health = this.changeHealth(-1);
+      }
+    }
+    if (keyPressed) {
+      if (key == 'o') {
+        health = this.changeHealth(1);
       }
     }
   }
@@ -91,7 +109,7 @@ class Player {
   boolean hasCollided(Bug withBug) {
     if (dist(x, y, withBug.x, withBug.y) < (35 + 35)) {
       this.score += withBug.points;
-      this.health -= withBug.damage;
+      this.health = this.changeHealth(-withBug.damage);
       return true;
     }
     return false;

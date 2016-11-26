@@ -128,7 +128,7 @@ class Bug {
     }
     if (dist(x, y, player.x, player.y) < this.hitRadius) {
       player.score += this.points;
-      player.health -= this.points;
+      player.health = player.changeHealth(-this.damage);
       return true;
     }
     return false;
