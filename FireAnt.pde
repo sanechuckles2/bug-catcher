@@ -7,6 +7,8 @@ class FireAnt extends Bug {
     points = -40; 
     yspeed = 1;
     baseJitter = 10;
+    hitRadius = 70;
+    damage = 20;
   }
 
   void draw() {
@@ -35,4 +37,5 @@ class FireAnt extends Bug {
     int offsetValue = int(offset);
     return signValue * offsetValue;
   }
+
 }

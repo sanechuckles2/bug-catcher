@@ -5,6 +5,7 @@ class SamuriBug extends Bug {
   SamuriBug() {
     points = 5;
     baseJitter = 7;
+    hitRadius = 100;
   }
   
   void draw() {

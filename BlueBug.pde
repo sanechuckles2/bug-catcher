@@ -7,6 +7,7 @@ class BlueBug extends Bug {
     points = 15;
     yspeed = 3;
     baseJitter = 100;
+    hitRadius = 100;
   }
 
   void draw() {

@@ -6,6 +6,8 @@ class HealthPack extends Bug {
     points = 0;
     yspeed = 6;
     baseJitter = 0;
+    hitRadius = 40;
+    damage = -30;
   }
 
   void draw() {
@@ -15,4 +17,5 @@ class HealthPack extends Bug {
     rect(x-30, y-7.5, 57, 12, 40);
     rect(x-7.75, y-30, 12, 57, 40);
   }
+
 }

@@ -5,10 +5,14 @@ class Bug {
   float randombug = random (1, 10);
   int type = 0;
   int points = 0;
-  int health = -1;
+  int health = 0;
   private int jitterCount = 10;
   int signValue = 1;
   int baseJitter = 10;
+  float hitRadius = 120;
+  boolean isHitboxVisible = true;
+  boolean isCaught = false;
+  int damage = 0;
 
   Bug() {
     jitterCount = baseJitter;
@@ -39,7 +43,9 @@ class Bug {
     line(x, y, x-50, y+50);
     line(x, y, x+60, y);
     line(x, y, x-60, y);
+
     ellipse(x, y, 75, 90);
+
     fill(0);
     ellipse(x+13, y+15, 9, 9);
     ellipse(x+13, y, 9, 9);
@@ -49,6 +55,19 @@ class Bug {
     ellipse(x-13, y-15, 9, 9);
 
     displayScore();
+  }
+
+  void showHitBox() {
+    if ( !this.isHitboxVisible) {
+      return;
+    }
+    println("showHitBox ", hitRadius);
+    stroke(63);
+    noFill();
+    if (this.isCaught) {
+      stroke(#77FF99);
+    }
+    ellipse(x, y, hitRadius*2, hitRadius*2);
   }
 
   int xOffset() {
@@ -61,6 +80,10 @@ class Bug {
 
 
   final void move() {
+    if (this.isCaught) {
+      return;
+    }
+
     y = y + this.yOffset();
     x = x + this.xOffset();
 
@@ -72,10 +95,10 @@ class Bug {
   }
 
   final void run() {
-    //basicDisplay();
     if (y < height + 50) {
       move();
       draw();
+      showHitBox();
     }
   }
 
@@ -97,5 +120,21 @@ class Bug {
     }
 
     return false;
+  }
+
+  boolean hasCollided(Player player) {
+    if (this.isCaught) {
+      return false;
+    }
+    if (dist(x, y, player.x, player.y) < this.hitRadius) {
+      player.score += this.points;
+      player.health -= this.points;
+      return true;
+    }
+    return false;
+  }
+
+  void caught() {
+    this.isCaught = true;
   }
 }
