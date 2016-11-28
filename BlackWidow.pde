@@ -5,7 +5,7 @@ class BlackWidow extends Bug {
   BlackWidow() {
     points = 150;
     baseJitter = 10;
-    yspeed = 10;
+    yspeed = 15;
     hitRadius = 70;
     damage = 10;
   }

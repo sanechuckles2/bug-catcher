@@ -27,13 +27,21 @@ class Player {
 
   float changeHealth(float by) {
     this.health += by;
-    if (this.health < 0)  {
+    if (this.health < 0) {
       this.health = 0;
     } 
-    if(this.health > this.maxHealth) {
-      this.health = this.maxHealth; 
+    if (this.health > this.maxHealth) {
+      this.health = this.maxHealth;
     }
     return this.health;
+  }
+
+  void gameover() {
+    if (health <= 0) {
+      stroke(#000000);
+      textSize(100);
+      text("GAME OVER", 250, 350);
+    }
   }
 
   void healthchange() {
@@ -104,6 +112,7 @@ class Player {
     displayScore();
     healthbar();
     healthchange();
+    gameover();
   }
 
   boolean hasCollided(Bug withBug) {

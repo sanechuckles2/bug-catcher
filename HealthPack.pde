@@ -6,7 +6,7 @@ class HealthPack extends Bug {
     points = 0;
     yspeed = 6;
     baseJitter = 0;
-    hitRadius = 40;
+    hitRadius = 60;
     damage = -30;
   }
 
