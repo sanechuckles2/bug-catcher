@@ -98,7 +98,9 @@ class Bug {
     if (y < height + 50) {
       move();
       draw();
-      showHitBox();
+      if (testBugs == true) {
+        showHitBox();
+      }
     }
   }
 
@@ -138,3 +140,4 @@ class Bug {
     this.isCaught = true;
   }
 }
+

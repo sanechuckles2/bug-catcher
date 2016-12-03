@@ -1,28 +1,28 @@
 
 
-class BlackWidow extends Bug {
+class Bettle extends Bug {
 
-  BlackWidow() {
-    points = 150;
+  Bettle() {
+    points = -20;
     baseJitter = 10;
-    yspeed = 15;
-    hitRadius = 70;
-    damage = 10;
+    hitRadius = 150;
+    damage = 50;
+    yspeed = 1.5;
   }
 
   void draw() {
-    stroke(#000000);
-    line(x, y, x+50, y+50);
-    line(x, y, x-50, y-50);
-    line(x, y, x+50, y-50);
-    line(x, y, x-50, y+50);
-    line(x, y, x+60, y);
-    line(x, y, x-60, y);
-    
-    fill(#000000);
-    ellipse(x, y, 75, 90);
+    stroke(63);
+    line(x, y, x+100, y+100);
+    line(x, y, x-100, y-100);
+    line(x, y, x+100, y-100);
+    line(x, y, x-100, y+100);
+    line(x, y, x+110, y);
+    line(x, y, x-110, y);
 
-    fill(#FF0000);
+    fill(#480F0F);
+    ellipse(x, y, 150, 165);
+
+    fill(0);
     ellipse(x+13, y+15, 9, 9);
     ellipse(x+13, y, 9, 9);
     ellipse(x+13, y-15, 9, 9);
@@ -47,3 +47,4 @@ class BlackWidow extends Bug {
     return super.yOffset();
   }
 }
+

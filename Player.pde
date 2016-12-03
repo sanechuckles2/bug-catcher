@@ -1,3 +1,4 @@
+
 class Player {
   float x = 400;
   float y = 750;
@@ -6,6 +7,7 @@ class Player {
   int score = 0;
   final float maxHealth = 75;
   float health = maxHealth;
+  boolean gameOver = false;
 
 
   void display() {
@@ -38,9 +40,15 @@ class Player {
 
   void gameover() {
     if (health <= 0) {
+      gameOver = true;
+    }
+    if (gameOver == true) {
       stroke(#000000);
       textSize(100);
-      text("GAME OVER", 250, 350);
+      fill(#000000);
+      text("GAME OVER", 250, 300);
+      text("your score", 200, 400);
+      text(score, 710, 400);
     }
   }
 
@@ -48,11 +56,13 @@ class Player {
     if (health >= 55) {
       fill(#00FF2C);
       rect(x+40, y-50, 10, health, 10);
-    } else
+    } 
+    else
       if (health >= 33) {
         fill(#FF811A);
         rect(x+40, y-50, 10, health, 10);
-      } else
+      } 
+      else
         if (health >= 0) {
           fill(#D31A1A);
           rect(x+40, y-50, 10, health, 10);
@@ -95,9 +105,11 @@ class Player {
 
     if (score >= 10) {
       offset = 13;
-    } else if (score >= 100) {
+    } 
+    else if (score >= 100) {
       offset = 26;
-    } else if (score >= 1000) {
+    } 
+    else if (score >= 1000) {
       offset = 39;
     }
 
@@ -124,3 +136,4 @@ class Player {
     return false;
   }
 }
+

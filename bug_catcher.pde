@@ -4,7 +4,8 @@ BugFactory factory;
 PImage backgroundImage;
 ArrayList<Bug> bugList;
 float timer;
-boolean testBugs = false;
+boolean testBugs = true;
+boolean gameOver = false;
 
 void setup() {
   size(1200, 700); 
@@ -19,13 +20,18 @@ void setup() {
 
 void draw() {
   background(157);
+  if(myPlayer.health <= 0) {
+   gameOver = true; 
+  }
   image(backgroundImage, -100, -200);
   fill(255);
   myPlayer.run();
   addBug();
 
   for (int i=0; i < bugList.size(); i++) {
-    bugList.get(i).run();
+    if (gameOver == false) {
+      bugList.get(i).run();
+    }
   }
 
   for (int i=0; i < bugList.size(); i++) {
@@ -33,7 +39,8 @@ void draw() {
     if (bug.hasCollided(myPlayer)) {
       if (testBugs) {
         bug.caught();
-      } else {
+      } 
+      else {
         bugList.remove(i);
       }
     }
@@ -75,3 +82,4 @@ void addBug() {
     print(",", bugList.size());
   }
 }
+
