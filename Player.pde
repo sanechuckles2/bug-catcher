@@ -3,7 +3,6 @@ class Player {
   float x = 400;
   float y = 750;
   int xspeed = 7;
-  boolean invertedcontrols = false;
   int score = 0;
   final float maxHealth = 75;
   float health = maxHealth;
@@ -67,14 +66,16 @@ class Player {
           fill(#D31A1A);
           rect(x+40, y-50, 10, health, 10);
         }
-    if (keyPressed) {
-      if (key == 'p') {
-        health = this.changeHealth(-1);
+    if (testBugs == true) {
+      if (keyPressed) {
+        if (key == 'p') {
+          health = this.changeHealth(-1);
+        }
       }
-    }
-    if (keyPressed) {
-      if (key == 'o') {
-        health = this.changeHealth(1);
+      if (keyPressed) {
+        if (key == 'o') {
+          health = this.changeHealth(1);
+        }
       }
     }
   }
@@ -89,12 +90,6 @@ class Player {
       if (key == 'd' || keyCode == RIGHT) {
         x = x + xspeed;
       }
-    }
-  }
-
-  void invertcontrols() {
-    if (invertedcontrols == true) {
-      xspeed = xspeed * -1;
     }
   }
 
@@ -120,7 +115,6 @@ class Player {
   void run() {
     move();
     display();
-    invertcontrols();
     displayScore();
     healthbar();
     healthchange();
@@ -131,6 +125,10 @@ class Player {
     if (dist(x, y, withBug.x, withBug.y) < (35 + 35)) {
       this.score += withBug.points;
       this.health = this.changeHealth(-withBug.damage);
+      if(withBug.type == 7) {
+       xspeed = xspeed * -1;
+       print("invertedcontrols");
+      }
       return true;
     }
     return false;

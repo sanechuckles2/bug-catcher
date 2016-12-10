@@ -8,6 +8,7 @@ class Bettle extends Bug {
     hitRadius = 150;
     damage = 50;
     yspeed = 1.5;
+    type = 6;
   }
 
   void draw() {

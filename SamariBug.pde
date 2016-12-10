@@ -6,8 +6,10 @@ class SamuriBug extends Bug {
     points = 5;
     baseJitter = 7;
     hitRadius = 100;
+    type = 1;
+    damage = 1;
   }
-  
+
   void draw() {
     fill(#F6FF00);
     basicDisplay();
@@ -17,7 +19,7 @@ class SamuriBug extends Bug {
     float offset = random (1, 10);
     float sign = random (0, 2);
 
-    if(shouldJitter()) {
+    if (shouldJitter()) {
       signValue = (sign <= 1) ? 1 : -1;
     }
 
@@ -29,3 +31,4 @@ class SamuriBug extends Bug {
     return super.yOffset();
   }
 }
+

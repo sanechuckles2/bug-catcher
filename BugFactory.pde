@@ -20,6 +20,8 @@ class BugFactory {
     bugList.add(newBug);
     newBug = new Bettle();
     bugList.add(newBug);
+    newBug = new BambooGrub();
+    bugList.add(newBug);
     return bugList;
   }
 

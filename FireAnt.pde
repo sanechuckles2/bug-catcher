@@ -7,6 +7,7 @@ class FireAnt extends Bug {
     baseJitter = 10;
     hitRadius = 70;
     damage = 25;
+    type = 4;
   }
 
   void draw() {

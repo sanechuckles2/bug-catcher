@@ -8,6 +8,7 @@ class HealthPack extends Bug {
     baseJitter = 0;
     hitRadius = 60;
     damage = -30;
+    type = 3;
   }
 
   void draw() {

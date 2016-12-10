@@ -8,6 +8,7 @@ class BlackWidow extends Bug {
     yspeed = 15;
     hitRadius = 70;
     damage = 10;
+    type = 5;
   }
 
   void draw() {
